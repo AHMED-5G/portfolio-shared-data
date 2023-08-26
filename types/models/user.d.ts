@@ -3,5 +3,5 @@ export interface User {
   name: string;
   email: string;
   password: string;
-  //test actions 6
+  //test actions 7
 }
