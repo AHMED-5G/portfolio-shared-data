@@ -6,4 +6,4 @@ export class MyClass {
   // Class implementation
 }
 
-export const myVariable: string = "Hello, world!";
+export const myVariable: string = 'Hello, world!';
