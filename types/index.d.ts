@@ -1,3 +1,7 @@
-import { IUser } from "./models/user";
-
-export { IUser };
+export interface IUser {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  userName: string;
+}
