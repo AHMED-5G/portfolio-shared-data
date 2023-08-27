@@ -1,7 +1,7 @@
-export interface User {
+export interface IUser {
   id: number;
   name: string;
   email: string;
   password: string;
-  //test actions 11
+
 }
