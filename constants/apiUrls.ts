@@ -4,3 +4,4 @@ export const BASE_URL: string =
     : "https://api.example.com";
 export const USERS_URL: string = `${BASE_URL}/users`;
 export const REGISTER_URL: string = `${BASE_URL}/register`;
+//new
