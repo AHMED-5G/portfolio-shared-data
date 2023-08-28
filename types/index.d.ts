@@ -8,14 +8,11 @@ export interface IUser {
 
 export interface ApiResponseError {
   codeMessage: string;
-  codeError: string;
 }
 interface ApiResponse<T extends object> {
   status: boolean;
-  code: number;
   data: T;
   error?: ApiResponseError;
 }
 
 export type JSONWebTokenType = string;
-//bn234mmmmmm
