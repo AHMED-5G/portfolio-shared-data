@@ -1,4 +1,4 @@
-import { JSONWebTokenType } from "../types";
+import { IUser, JSONWebTokenType } from "../types";
 
 //Login
 export type RequestLoginSuccessObject = {
@@ -14,4 +14,12 @@ export type ResetPasswordRequireData = {
   code: string;
   newPassword: string;
   email: string;
+};
+
+//me
+export interface MeSuccessObject
+  extends Readonly<Required<Omit<IUser, "password">>> {}
+
+export type MeRequireData = {
+  jwt: string;
 };
