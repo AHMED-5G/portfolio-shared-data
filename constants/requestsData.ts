@@ -1,5 +1,11 @@
 import { IUser, JSONWebTokenType } from "../types";
 
+//signup
+export type RequestSignupRequireData = {
+  email: string;
+  password: string;
+};
+
 //Login
 export type RequestLoginSuccessObject = {
   jwt: JSONWebTokenType;

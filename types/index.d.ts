@@ -9,9 +9,9 @@ export interface IUser {
 export interface ApiResponseError {
   codeMessage: string;
 }
-interface ApiResponse<T extends object> {
+interface ApiResponse<SuccessT = unknown> {
   status: boolean;
-  data: T;
+  data: SuccessT;
   error?: ApiResponseError;
 }
 
