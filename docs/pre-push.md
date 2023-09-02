@@ -10,21 +10,43 @@ echo "Pushing changes in the submodule..."
 
 # Navigate to the submodule directory
 cd shared-data
+git fetch
 
-# Check the status of the submodule
-git status
+# Check if the current branch is behind the remote branch in the shared-data submodule
+SUBMODULE_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+REMOTE_BRANCH=$(git rev-parse --abbrev-ref @{u})
+SUBMODULE_DIFF_COMMITS=$(git rev-list --count $REMOTE_BRANCH..$SUBMODULE_BRANCH)
+if [ $SUBMODULE_DIFF_COMMITS -gt 0 ]; then
+  echo "Shared-data submodule is ahead of the remote branch. Please pull changes from the remote branch before pushing in the parent repository."
+  exit 1
+else
+  echo "Shared-data submodule is up-to-date. Proceeding with pushing changes in the parent repository."
 
-# Add all changes to the staging area
-git add .
+  # Check the status of the submodule
+  git status
 
-# Create a commit with a descriptive message
-git commit -m "Update submodule by backend"
+  # Add all changes to the staging area
+  git add .
 
-# Push the changes to the remote repository
-git push origin master
+  # Create a commit with a descriptive message
+  git commit -m "Update submodule by backend"
 
-# Return to the parent directory
-cd ..
+  # Check if there are any new commits in the remote branch of the submodule
+  git fetch origin $SUBMODULE_BRANCH
+  LOCAL_COMMIT=$(git rev-parse HEAD)
+  REMOTE_COMMIT=$(git rev-parse origin/$SUBMODULE_BRANCH)
+  if [ $LOCAL_COMMIT != $REMOTE_COMMIT ]; then
+    echo "Remote branch of the shared-data submodule has new commits. Please pull changes from the remote branch before pushing in the parent repository."
+    exit 1
+  fi
+
+  # Push the changes to the remote repository
+  git push origin master
+
+  # Return to the parent directory
+  cd ..
+fi
+
 ```
 
 ## Purpose
