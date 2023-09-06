@@ -37,3 +37,4 @@ lerna-debug.log*
 #by me
 .env
 .commands.txt
+.expo
