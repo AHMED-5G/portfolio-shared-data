@@ -8,6 +8,10 @@ This repository contains shared data, including TypeScript types and other data 
 
 The purpose of this repository is to centralize the shared data that is required by multiple repositories within my portfolio app. By having a separate shared data repository, I can ensure consistency and avoid duplication of code and data.
 
+## [Frontend](https://github.com/AHMED-5G/portfolio)
+
+## [Backend](https://github.com/AHMED-5G/portfolio-backend)
+
 ## Contributing
 
 Contributions to the shared data repository are not accepted as this repository is for personal use only.
